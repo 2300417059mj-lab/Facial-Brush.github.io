@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3合1面部美容刷 | 黑头清洁神器</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .feature-card:hover { transform: translateY(-5px); transition: transform 0.3s ease; }
+        .blackhead-highlight {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border: 1px solid #a7f3d0;
+        }
+        .blackhead-btn {
+            background: #10b981 !important;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+        .blackhead-btn:hover {
+            background: #059669 !important;
+        }
+        /* 平滑滚动 */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-sm sticky top-0 z-10">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <h1 class="text-xl font-semibold text-emerald-600">Beauty 3-in-1</h1>
+            <div class="hidden md:flex gap-6">
+                <a href="#intro" class="text-gray-600 hover:text-emerald-600 transition">产品介绍</a>
+                <a href="#features" class="text-gray-600 hover:text-emerald-600 transition">核心功能</a>
+                <a href="#gallery" class="text-gray-600 hover:text-emerald-600 transition">产品展示</a>
+                <a href="#blackhead-tech" class="text-gray-600 hover:text-emerald-600 transition">黑头黑科技</a> <!-- 新增导航 -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- 头部 banner -->
+    <header class="bg-gradient-to-r from-emerald-50 to-pink-50 py-16 md:py-24">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-8">
+            <div class="md:w-1/2">
+                <h2 class="text-[clamp(2rem,5vw,3.5rem)] font-bold leading-tight mb-4">
+                    一支搞定<span class="text-emerald-600">黑头烦恼</span>
+                </h2>
+                <p class="text-gray-600 text-lg mb-8 max-w-md">
+                    3合1面部美容刷，<strong class="text-emerald-700 font-medium">专研黑头清洁技术</strong>，兼顾轻柔洗脸、涂敷护理，告别草莓鼻！
+                </p>
+                <!-- 按钮跳转至黑头黑科技板块 -->
+                <a href="#blackhead-tech" class="inline-block">
+                    <button class="blackhead-btn bg-emerald-600 text-white px-8 py-3 rounded-full font-medium hover:bg-emerald-700 transition">
+                        了解黑头清洁黑科技
+                    </button>
+                </a>
+            </div>
+            <div class="md:w-1/2">
+                <img src="./image/main.jpg" alt="黑头清洁美容刷" class="w-full max-w-sm mx-auto rounded-lg shadow-lg">
+            </div>
+        </div>
+    </header>
+
+    <!-- 产品介绍 -->
+    <section id="intro" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h3 class="text-2xl md:text-3xl font-bold mb-3">为什么选择这款3合1美容刷？</h3>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    <strong class="text-emerald-700">黑头清洁更彻底</strong>，同时简化护肤流程、温和不伤肤，一支搞定全脸护理
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="feature-card bg-gray-50 p-6 rounded-xl shadow-sm">
+                    <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-2">简化护肤流程</h4>
+                    <p class="text-gray-600">替代传统洁面刷、黑头铲、面膜刷，护肤步骤减少50%以上</p>
+                </div>
+                <div class="feature-card blackhead-highlight p-6 rounded-xl shadow-sm">
+                    <div class="w-12 h-12 bg-emerald-500 rounded-full flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-2 text-emerald-700">黑头清洁更彻底</h4>
+                    <p class="text-gray-700">圆润铲头精准贴合毛孔，温和刮除黑头，不损伤肌肤屏障</p>
+                </div>
+                <div class="feature-card bg-gray-50 p-6 rounded-xl shadow-sm">
+                    <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                        </svg>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-2">便携易收纳</h4>
+                    <p class="text-gray-600">一体化设计，体积小巧，出差旅行轻松携带，不占化妆包空间</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心功能 -->
+    <section id="features" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h3 class="text-2xl md:text-3xl font-bold text-center mb-12">
+                <span class="text-emerald-600">黑头清洁</span>为核心，3大功能全搞定
+            </h3>
+            
+            <div class="space-y-12 md:space-y-0 md:grid md:grid-cols-2 gap-10 items-center">
+                <div class="blackhead-highlight p-4 rounded-xl">
+                    <img src="./image/1.jpg" alt="黑头清洁铲头" class="w-full rounded-lg shadow-md">
+                </div>
+                <div>
+                    <h4 class="text-2xl font-bold mb-4 text-emerald-700">✨ 核心功能1：精准清洁黑头</h4>
+                    <p class="text-gray-600 mb-4 text-lg">
+                        专为亚洲人毛孔设计的圆润金属铲头，配合导出液使用，轻松刮除黑头、白头，告别草莓鼻，还原通透肌肤！
+                    </p>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span class="font-medium">弧形铲面</span>：完美贴合鼻翼、下巴等易长黑头区域
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span class="font-medium">光滑边缘</span>：仅清除黑头，不损伤健康角质层
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span class="font-medium">可拆卸设计</span>：清洁更彻底，避免细菌滋生
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <img src="./image/2.jpg" alt="轻柔洗脸刷头" class="w-full rounded-lg shadow-md">
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-3 text-emerald-600">功能2：轻柔洗脸</h4>
+                    <p class="text-gray-600 mb-4">
+                        细密柔软刷头，深入清洁毛孔内的油脂与污垢，温和按摩肌肤，洗后不紧绷，适配各类肤质。
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            柔软硅胶材质，亲肤无刺激
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            多孔设计，起泡更丰富
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <img src="./image/3.jpg" alt="涂敷头" class="w-full rounded-lg shadow-md">
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-3 text-emerald-600">功能3：涂敷护理</h4>
+                    <p class="text-gray-600 mb-4">
+                        圆润硅胶涂敷头，均匀涂抹泥膜、精华液等护肤品，避免手部污染，用量更节省。
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            宽面设计，涂敷更高效
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            易清洗，不易残留护肤品
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品展示 -->
+    <section id="gallery" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h3 class="text-2xl md:text-3xl font-bold text-center mb-12">
+                黑头清洁功能 <span class="text-emerald-600">细节展示</span>
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <img src="./image/4.jpg" alt="黑头铲头细节" class="w-full rounded-lg shadow-md">
+                <img src="./image/5.jpg" alt="黑头清洁使用场景" class="w-full rounded-lg shadow-md">
+                <img src="./image/6.jpg" alt="刷头细节" class="w-full rounded-lg shadow-md">
+                <img src="./image/7.jpg" alt="产品包装" class="w-full rounded-lg shadow-md">
+            </div>
+        </div>
+    </section>
+
+    <!-- 新增：黑头清洁黑科技板块 -->
+    <section id="blackhead-tech" class="py-16 bg-gradient-to-b from-gray-50 to-emerald-50">
+        <div class="container mx-auto px-4">
+            <h3 class="text-3xl md:text-4xl font-bold text-center mb-12 text-emerald-700">
+                黑头清洁黑科技 · 深层清洁不损伤
+            </h3>
+            
+            <div class="max-w-4xl mx-auto">
+                <!-- 技术原理 -->
+                <div class="bg-white rounded-2xl shadow-md p-8 mb-10">
+                    <h4 class="text-2xl font-semibold mb-6 flex items-center gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                        核心技术原理
+                    </h4>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <img src="./image/detail.jpg" alt="黑头清洁技术原理" class="w-full rounded-lg shadow-sm">
+                        </div>
+                        <div class="flex flex-col justify-center">
+                            <p class="text-gray-700 mb-4">
+                                我们的黑头清洁铲头采用<span class="font-semibold text-emerald-600">304不锈钢材质</span>，结合人体工学弧形设计，配合“软化-导出-刮除”三步清洁法：
+                            </p>
+                            <ol class="space-y-3 text-gray-600 list-decimal list-inside">
+                                <li>软化：先用热毛巾敷鼻3分钟，软化黑头角栓</li>
+                                <li>导出：涂抹黑头导出液，溶解毛孔内油脂污垢</li>
+                                <li>刮除：用铲头轻轻刮除，仅清除黑头不损伤角质</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 优势对比 -->
+                <div class="bg-white rounded-2xl shadow-md p-8 mb-10">
+                    <h4 class="text-2xl font-semibold mb-6 flex items-center gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        传统方法 VS 我们的黑科技
+                    </h4>
+                    <div class="overflow-x-auto">
+                        <table class="w-full border-collapse">
+                            <thead>
+                                <tr class="bg-emerald-100">
+                                    <th class="p-4 text-left border-b border-emerald-200">对比项</th>
+                                    <th class="p-4 text-left border-b border-emerald-200">传统方法（鼻贴/手挤）</th>
+                                    <th class="p-4 text-left border-b border-emerald-200">3合1美容刷黑头铲</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="p-4 border-b border-gray-200 font-medium">清洁效果</td>
+                                    <td class="p-4 border-b border-gray-200 text-gray-600">仅清除表面黑头，易残留</td>
+                                    <td class="p-4 border-b border-gray-200 text-emerald-600 font-medium">深入毛孔，清洁更彻底</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-4 border-b border-gray-200 font-medium">肌肤损伤</td>
+                                    <td class="p-4 border-b border-gray-200 text-gray-600">拉扯毛孔，易导致毛孔粗大</td>
+                                    <td class="p-4 border-b border-gray-200 text-emerald-600 font-medium">温和刮除，不损伤肌肤屏障</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-4 border-b border-gray-200 font-medium">反复生长</td>
+                                    <td class="p-4 border-b border-gray-200 text-gray-600">黑头反复生长，频率高</td>
+                                    <td class="p-4 border-b border-gray-200 text-emerald-600 font-medium">减少黑头再生，效果持久</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-4 font-medium">使用便捷性</td>
+                                    <td class="p-4 text-gray-600">步骤繁琐，易脏手</td>
+                                    <td class="p-4 text-emerald-600 font-medium">一体化设计，单手操作</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 使用小贴士 -->
+                <div class="bg-white rounded-2xl shadow-md p-8">
+                    <h4 class="text-2xl font-semibold mb-6 flex items-center gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                        黑头清洁使用小贴士
+                    </h4>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-emerald-50 p-5 rounded-xl">
+                            <h5 class="font-semibold text-lg mb-3 text-emerald-700">✅ 正确使用</h5>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>使用前务必清洁铲头并消毒</li>
+                                <li>配合导出液使用，效果更佳</li>
+                                <li>刮除时力度轻柔，顺着毛孔方向</li>
+                                <li>使用后及时清洁并收纳</li>
+                            </ul>
+                        </div>
+                        <div class="bg-red-50 p-5 rounded-xl">
+                            <h5 class="font-semibold text-lg mb-3 text-red-700">❌ 避免操作</h5>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>不要干刮（无导出液），易损伤肌肤</li>
+                                <li>不要用力过猛，避免刮伤皮肤</li>
+                                <li>敏感肌/痘痘肌发炎期请勿使用</li>
+                                <li>不要与他人共用，避免交叉感染</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部 -->
+    <footer class="bg-emerald-600 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2025 Beauty 3-in-1 面部美容刷 | <strong>黑头清洁专家</strong>，让护肤更简单</p>
+        </div>
+    </footer>
+</body>
+</html>
