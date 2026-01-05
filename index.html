@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VANGINES - Care Simply, Love Gently</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    <style>
+        :root {
+            --primary-color: #FF6B8B;
+            --secondary-color: #9C27B0;
+            --light-color: #FFF5F7;
+            --dark-color: #333333;
+            --text-color: #444444;
+            --light-text: #777777;
+            --border-radius: 12px;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 头部和导航栏 */
+        header {
+            background-color: white;
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .logo-text {
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .slogan {
+            font-size: 12px;
+            color: var(--light-text);
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            font-size: 16px;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        nav a.active {
+            color: var(--primary-color);
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .language-switch {
+            display: flex;
+            gap: 5px;
+            background-color: #f5f5f5;
+            border-radius: 20px;
+            padding: 5px;
+        }
+
+        .lang-btn {
+            padding: 8px 15px;
+            border-radius: 15px;
+            border: none;
+            background: transparent;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .lang-btn.active {
+            background-color: white;
+            color: var(--primary-color);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--dark-color);
+        }
+
+        /* 英雄区域 - 修改为banner轮播 */
+        .hero {
+            background: linear-gradient(135deg, var(--light-color) 0%, #ffffff 100%);
+            padding: 0;
+            overflow: hidden;
+            position: relative;
+            height: 600px;
+        }
+
+        .hero-swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-slide {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .hero-slide-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .hero-slide-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-slide-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            color: var(--light-text);
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(255, 107, 139, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 107, 139, 0.4);
+        }
+
+        .hero-image {
+            position: relative;
+            text-align: center;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Banner导航按钮 */
+        .hero-swiper .swiper-button-next,
+        .hero-swiper .swiper-button-prev {
+            color: var(--primary-color);
+            background-color: rgba(255, 255, 255, 0.8);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            box-shadow: var(--box-shadow);
+        }
+
+        .hero-swiper .swiper-button-next:after,
+        .hero-swiper .swiper-button-prev:after {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .hero-swiper .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+            background-color: rgba(255, 255, 255, 0.7);
+            opacity: 1;
+        }
+
+        .hero-swiper .swiper-pagination-bullet-active {
+            background-color: var(--primary-color);
+        }
+
+        /* 自动播放指示器 */
+        .autoplay-progress {
+            position: absolute;
+            right: 16px;
+            bottom: 16px;
+            z-index: 10;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .autoplay-progress svg {
+            --progress: 0;
+            position: absolute;
+            left: 0;
+            top: 0px;
+            z-index: 10;
+            width: 100%;
+            height: 100%;
+            stroke-width: 4px;
+            stroke: var(--primary-color);
+            fill: none;
+            stroke-dashoffset: calc(125.6px * (1 - var(--progress)));
+            stroke-dasharray: 125.6;
+            transform: rotate(-90deg);
+        }
+
+        /* 产品展示部分 */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .section-title p {
+            color: var(--light-text);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .product-showcase {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+        }
+
+        .swiper {
+            width: 100%;
+            padding: 30px 0;
+        }
+
+        .swiper-slide {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .swiper-slide:hover {
+            transform: translateY(-10px);
+        }
+
+        .slide-image {
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .slide-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slide-content {
+            padding: 20px;
+        }
+
+        .slide-content h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .slide-content p {
+            color: var(--light-text);
+            font-size: 14px;
+        }
+
+        .swiper-button-next, .swiper-button-prev {
+            color: var(--primary-color);
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: var(--primary-color);
+        }
+
+        /* 功能介绍 */
+        .features {
+            padding: 80px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .feature-card p {
+            color: var(--light-text);
+        }
+
+        /* 使用方法 - 已改为图片展示 */
+        .how-to-use {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+        }
+
+        .photo-steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .photo-step-card {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            height: 350px;
+            background-color: #fff;
+        }
+
+        .photo-step-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .photo-step-image {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .photo-step-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .photo-step-card:hover .photo-step-image img {
+            transform: scale(1.05);
+        }
+
+        .photo-step-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 25px;
+            color: white;
+        }
+
+        .photo-step-number {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 24px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .photo-step-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .photo-step-content h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .photo-step-content p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        /* 品牌故事 */
+        .brand-story {
+            padding: 80px 0;
+        }
+
+        .story-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .story-text h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .story-text p {
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        .story-image img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #2a2a2a;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #FF6B8B, #9C27B0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .footer-slogan {
+            font-size: 14px;
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        .footer-links h4, .footer-contact h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .hero-content, .story-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero {
+                height: 500px;
+            }
+            
+            .hero-text h1 {
+                font-size: 36px;
+            }
+            
+            .section-title h2 {
+                font-size: 30px;
+            }
+            
+            .photo-steps-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                box-shadow: var(--box-shadow);
+                padding: 20px;
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            nav.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .header-content {
+                padding: 0 10px;
+            }
+            
+            .hero {
+                height: 450px;
+                padding: 0;
+            }
+            
+            .hero-text h1 {
+                font-size: 32px;
+            }
+            
+            .photo-steps-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .photo-step-card {
+                height: 300px;
+            }
+            
+            .hero-swiper .swiper-button-next,
+            .hero-swiper .swiper-button-prev {
+                width: 40px;
+                height: 40px;
+                display: none;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                height: 400px;
+            }
+            
+            .hero-text h1 {
+                font-size: 28px;
+            }
+            
+            .section-title h2 {
+                font-size: 26px;
+            }
+            
+            .feature-card, .photo-step-card {
+                padding: 20px;
+            }
+            
+            .photo-step-overlay {
+                padding: 20px;
+            }
+            
+            .photo-step-content h3 {
+                font-size: 20px;
+            }
+            
+            .autoplay-progress {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部导航栏 -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-text">VANGINES</div>
+                <div class="slogan"></div>
+            </div>
+            
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#home" class="active" data-lang-key="home">首页</a></li>
+                    <li><a href="#product" data-lang-key="product">产品展示</a></li>
+                    <li><a href="#features" data-lang-key="features">功能介绍</a></li>
+                    <li><a href="#how-to-use" data-lang-key="how-to-use">使用方法</a></li>
+                    <li><a href="#story" data-lang-key="story">品牌故事</a></li>
+                </ul>
+            </nav>
+            
+            <div class="language-switch">
+                <button class="lang-btn active" data-lang="zh">中文</button>
+                <button class="lang-btn" data-lang="en">English</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 首页/英雄区域 - 已添加banner轮播 -->
+    <section class="hero" id="home">
+        <div class="hero-swiper">
+            <div class="swiper-wrapper">
+                <!-- Banner 1 -->
+                <div class="swiper-slide hero-slide">
+                    <div class="hero-slide-bg">
+                        <img src="./image/main1.jpg" alt="VANGINES产品展示">
+                    </div>
+                    <div class="hero-slide-overlay"></div>
+                    <div class="hero-content">
+                        <div class="hero-text">
+                            <h1 data-lang-key="hero-title1">二合一滚轮黑头铲<br>您的专业护肤伙伴</h1>
+                            <p data-lang-key="hero-desc1">VANGINES 黑头铲与冰感滚轮二合一设计，为您的日常护肤提供专业级体验。温和清洁，深层按摩，焕活肌肤。</p>
+                            <a href="#product" class="cta-button" data-lang-key="shop-now">了解产品</a>
+                        </div>
+                        <div class="hero-image">
+                            <img src="./image/main1.jpg" alt="VANGINES产品">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Banner 2 -->
+                <div class="swiper-slide hero-slide">
+                    <div class="hero-slide-bg">
+                        <img src="./image/main2.jpg" alt="VANGINES护肤体验">
+                    </div>
+                    <div class="hero-slide-overlay"></div>
+                    <div class="hero-content">
+                        <div class="hero-text">
+                            <h1 data-lang-key="hero-title2">冰感滚轮按摩<br>舒缓肌肤，焕发活力</h1>
+                            <p data-lang-key="hero-desc2">冷冻后使用，舒缓肌肤，减少浮肿，收缩毛孔，提供清凉提神效果，配合精华液促进吸收。</p>
+                            <a href="#features" class="cta-button" data-lang-key="learn-more">了解更多</a>
+                        </div>
+                        <div class="hero-image">
+                            <img src="./image/main2.jpg" alt="VANGINES冰感滚轮">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Banner 3 -->
+                <div class="swiper-slide hero-slide">
+                    <div class="hero-slide-bg">
+                        <img src="./image/main3.jpg" alt="VANGINES护肤理念">
+                    </div>
+                    <div class="hero-slide-overlay"></div>
+                    <div class="hero-content">
+                        <div class="hero-text">
+                            <h1 data-lang-key="hero-title3">简单呵护，温柔关爱<br>Care Simply, Love Gently</h1>
+                            <p data-lang-key="hero-desc3">我们的使命是让专业级护肤变得简单易行。通过精心设计的二合一工具，提供温和有效的护肤体验。</p>
+                            <a href="#story" class="cta-button" data-lang-key="brand-story">品牌故事</a>
+                        </div>
+                        <div class="hero-image">
+                            <img src="./image/main3.jpg" alt="VANGINES品牌理念">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 分页器 -->
+            <div class="swiper-pagination"></div>
+            
+            <!-- 导航按钮 -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            
+            <!-- 自动播放进度 -->
+            <div class="autoplay-progress">
+                <svg viewBox="0 0 48 48">
+                    <circle cx="24" cy="24" r="20"></circle>
+                </svg>
+                <span></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品展示 -->
+    <section class="product-showcase" id="product">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-lang-key="product-title">产品展示</h2>
+                <p data-lang-key="product-desc">探索VANGINES黑头铲与冰感滚轮的多功能设计，满足您的各种护肤需求</p>
+            </div>
+            
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="slide-image">
+                            <img src="./image/zisebaozhuang.jpg" alt="VANGINES产品包装">
+                        </div>
+                        <div class="slide-content">
+                            <h3 data-lang-key="slide1-title">时尚包装设计</h3>
+                            <p data-lang-key="slide1-desc">紫色包装盒，简约时尚，突出品牌与产品功能</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="slide-image">
+                            <img src="./image/shiyongxiaoguo.jpg" alt="VANGINES使用效果">
+                        </div>
+                        <div class="slide-content">
+                            <h3 data-lang-key="slide2-title">多功能面部工具</h3>
+                            <p data-lang-key="slide2-desc">一机多用：黑头清洁、毛孔净化、冰感按摩、促进吸收</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="slide-image">
+                            <img src="./image/binggangunlun.jpg" alt="VANGINES冰感滚轮">
+                        </div>
+                        <div class="slide-content">
+                            <h3 data-lang-key="slide3-title">冰感面部滚轮</h3>
+                            <p data-lang-key="slide3-desc">使用前冷冻15分钟，提供清凉提神效果，配合精华液促进吸收</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="slide-image">
+                            <img src="./image/qingjiefangfa.jpg" alt="VANGINES清洁方法">
+                        </div>
+                        <div class="slide-content">
+                            <h3 data-lang-key="slide4-title">简单清洁保养</h3>
+                            <p data-lang-key="slide4-desc">每次使用后清洗二合一滚轮及刮痧工具，保持洁净</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="slide-image">
+                            <img src="./image/xiaoqiaobianxie.jpg" alt="VANGINES便携设计">
+                        </div>
+                        <div class="slide-content">
+                            <h3 data-lang-key="slide5-title">小巧便携设计</h3>
+                            <p data-lang-key="slide5-desc">34mm头部直径，158mm总长度，食品级硅胶材质，随身携带</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 如果需要分页器 -->
+                <div class="swiper-pagination"></div>
+                
+                <!-- 如果需要导航按钮 -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 功能介绍 -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-lang-key="features-title">核心功能</h2>
+                <p data-lang-key="features-desc">VANGINES黑头铲与冰感滚轮的多重护肤功效，满足您的各种肌肤需求</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-snowflake"></i>
+                    </div>
+                    <h3 data-lang-key="feature1-title">冰感滚轮按摩</h3>
+                    <p data-lang-key="feature1-desc">冷冻后使用，舒缓肌肤，减少浮肿，收缩毛孔，提供清凉提神效果</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-broom"></i>
+                    </div>
+                    <h3 data-lang-key="feature2-title">黑头清洁铲</h3>
+                    <p data-lang-key="feature2-desc">不锈钢黑头铲，温和清洁毛孔，去除黑头、白头和油脂堆积</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3 data-lang-key="feature3-title">促进精华吸收</h3>
+                    <p data-lang-key="feature3-desc">配合精华液使用，按摩促进吸收，使护肤成分更深入渗透</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 data-lang-key="feature4-title">温和无刺激</h3>
+                    <p data-lang-key="feature4-desc">食品级硅胶材质，安全无刺激，适合所有肤质，包括敏感肌</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 使用方法 - 已改为图片展示 -->
+    <section class="how-to-use" id="how-to-use">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-lang-key="use-title">使用方法</h2>
+                <p data-lang-key="use-desc">四步简单操作，轻松实现专业级护肤效果</p>
+            </div>
+            
+            <div class="photo-steps-container">
+                <div class="photo-step-card">
+                    <div class="photo-step-image">
+                        <img src="./image/diyibu.jpg" alt="第一步：清洁面部">
+                        <div class="photo-step-overlay">
+                            <div class="photo-step-number">1</div>
+                            <div class="photo-step-content">
+                                <h3 data-lang-key="step1-title">清洁面部</h3>
+                                <p data-lang-key="step1-desc">使用面部清洁刷去除杂质，为护肤做好准备</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="photo-step-card">
+                    <div class="photo-step-image">
+                        <img src="./image/dierbu.jpg" alt="第二步：黑头清洁">
+                        <div class="photo-step-overlay">
+                            <div class="photo-step-number">2</div>
+                            <div class="photo-step-content">
+                                <h3 data-lang-key="step2-title">黑头清洁</h3>
+                                <p data-lang-key="step2-desc">使用黑头铲轻柔滑动，清理毛孔并去除堆积物</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="photo-step-card">
+                    <div class="photo-step-image">
+                        <img src="./image/disanbu.jpg" alt="第三步：冰感按摩">
+                        <div class="photo-step-overlay">
+                            <div class="photo-step-number">3</div>
+                            <div class="photo-step-content">
+                                <h3 data-lang-key="step3-title">冰感按摩</h3>
+                                <p data-lang-key="step3-desc">使用前冷冻15分钟，配合精华液按摩，促进吸收</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="photo-step-card">
+                    <div class="photo-step-image">
+                        <img src="./image/disibu.jpg" alt="第四步：清洁工具">
+                        <div class="photo-step-overlay">
+                            <div class="photo-step-number">4</div>
+                            <div class="photo-step-content">
+                                <h3 data-lang-key="step4-title">清洁工具</h3>
+                                <p data-lang-key="step4-desc">每次使用后清洗二合一滚轮及刮痧工具，保持洁净</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 品牌故事 -->
+    <section class="brand-story" id="story">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-lang-key="story-title">品牌故事</h2>
+                <p data-lang-key="story-desc">VANGINES </p>
+            </div>
+            
+            <div class="story-content">
+                <div class="story-text">
+                    <h3 data-lang-key="story-subtitle">简单呵护，温柔关爱</h3>
+                    <p data-lang-key="story-p1">VANGINES 诞生于对现代护肤需求的深刻理解。我们发现，在快节奏的生活中，人们渴望高效、简单且温和的护肤解决方案。因此，我们创造了这款集多功能于一身的护肤工具。</p>
+                    <p data-lang-key="story-p2">我们的使命是让专业级护肤变得简单易行。通过精心设计的黑头铲与冰感滚轮二合一工具，我们致力于为每位用户提供温和有效的护肤体验，无需复杂步骤，即可获得显著效果。</p>
+                    <p data-lang-key="story-p3">VANGINES 坚持使用高品质材料，包括食品级硅胶、不锈钢和锌合金，确保产品安全、耐用且有效。我们相信，护肤不仅是外在的护理，更是对自我的关爱与尊重。</p>
+                </div>
+                <div class="story-image">
+                    <!-- 使用占位图片，实际应用中替换为品牌相关图片 -->
+                    <img src="./image/brandstory.jpg" alt="VANGINES品牌故事">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">VANGINES</div>
+                    <div class="footer-slogan">Care Simply, Love Gently</div>
+                    <p data-lang-key="footer-about">VANGINES致力于提供高品质、多功能护肤工具，让您的日常护肤变得更简单、更有效。</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 data-lang-key="footer-links">快速链接</h4>
+                    <ul>
+                        <li><a href="#home" data-lang-key="home">首页</a></li>
+                        <li><a href="#product" data-lang-key="product">产品展示</a></li>
+                        <li><a href="#features" data-lang-key="features">功能介绍</a></li>
+                        <li><a href="#how-to-use" data-lang-key="how-to-use">使用方法</a></li>
+                        <li><a href="#story" data-lang-key="story">品牌故事</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4 data-lang-key="footer-contact"></h4>
+                    <!-- 联系方式已删除 -->
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p data-lang-key="copyright">© 2025 VANGINES. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 引入Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    
+    <script>
+        // 初始化首页banner轮播图
+        const heroSwiper = new Swiper('.hero-swiper', {
+            loop: true,
+            speed: 800,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.hero-swiper .swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.hero-swiper .swiper-button-next',
+                prevEl: '.hero-swiper .swiper-button-prev',
+            },
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            },
+            on: {
+                autoplayTimeLeft(s, time, progress) {
+                    const progressCircle = document.querySelector('.autoplay-progress svg');
+                    const progressContent = document.querySelector('.autoplay-progress span');
+                    if (progressCircle) {
+                        progressCircle.style.setProperty('--progress', 1 - progress);
+                    }
+                    if (progressContent) {
+                        progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+                    }
+                }
+            }
+        });
+        
+        // 初始化产品展示轮播图
+        const productSwiper = new Swiper('.product-showcase .swiper', {
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 20,
+            pagination: {
+                el: '.product-showcase .swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.product-showcase .swiper-button-next',
+                prevEl: '.product-showcase .swiper-button-prev',
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
+            },
+        });
+        
+        // 语言切换功能
+        const langBtns = document.querySelectorAll('.lang-btn');
+        const elementsToTranslate = document.querySelectorAll('[data-lang-key]');
+        
+        // 语言数据 - 更新了banner相关文本
+        const translations = {
+            zh: {
+                "home": "首页",
+                "product": "产品展示",
+                "features": "功能介绍",
+                "how-to-use": "使用方法",
+                "story": "品牌故事",
+                "hero-title1": "二合一滚轮黑头铲<br>您的专业护肤伙伴",
+                "hero-desc1": "VANGINES 黑头铲与冰感滚轮二合一设计，为您的日常护肤提供专业级体验。温和清洁，深层按摩，焕活肌肤。",
+                "hero-title2": "冰感滚轮按摩<br>舒缓肌肤，焕发活力",
+                "hero-desc2": "冷冻后使用，舒缓肌肤，减少浮肿，收缩毛孔，提供清凉提神效果，配合精华液促进吸收。",
+                "hero-title3": "简单呵护，温柔关爱<br>Care Simply, Love Gently",
+                "hero-desc3": "我们的使命是让专业级护肤变得简单易行。通过精心设计的二合一工具，提供温和有效的护肤体验。",
+                "shop-now": "了解产品",
+                "learn-more": "了解更多",
+                "brand-story": "品牌故事",
+                "product-title": "产品展示",
+                "product-desc": "探索VANGINES黑头铲与冰感滚轮的多功能设计，满足您的各种护肤需求",
+                "slide1-title": "时尚包装设计",
+                "slide1-desc": "紫色包装盒，简约时尚，突出品牌与产品功能",
+                "slide2-title": "多功能面部工具",
+                "slide2-desc": "一机多用：黑头清洁、毛孔净化、冰感按摩、促进吸收",
+                "slide3-title": "冰感面部滚轮",
+                "slide3-desc": "使用前冷冻15分钟，提供清凉提神效果，配合精华液促进吸收",
+                "slide4-title": "简单清洁保养",
+                "slide4-desc": "每次使用后清洗二合一滚轮及刮痧工具，保持洁净",
+                "slide5-title": "小巧便携设计",
+                "slide5-desc": "34mm头部直径，158mm总长度，食品级硅胶材质，随身携带",
+                "features-title": "核心功能",
+                "features-desc": "VANGINES黑头铲与冰感滚轮的多重护肤功效，满足您的各种肌肤需求",
+                "feature1-title": "冰感滚轮按摩",
+                "feature1-desc": "冷冻后使用，舒缓肌肤，减少浮肿，收缩毛孔，提供清凉提神效果",
+                "feature2-title": "黑头清洁铲",
+                "feature2-desc": "不锈钢黑头铲，温和清洁毛孔，去除黑头、白头和油脂堆积",
+                "feature3-title": "促进精华吸收",
+                "feature3-desc": "配合精华液使用，按摩促进吸收，使护肤成分更深入渗透",
+                "feature4-title": "温和无刺激",
+                "feature4-desc": "食品级硅胶材质，安全无刺激，适合所有肤质，包括敏感肌",
+                "use-title": "使用方法",
+                "use-desc": "四步简单操作，轻松实现专业级护肤效果",
+                "step1-title": "清洁面部",
+                "step1-desc": "使用面部清洁刷去除杂质，为护肤做好准备",
+                "step2-title": "黑头清洁",
+                "step2-desc": "使用黑头铲轻柔滑动，清理毛孔并去除堆积物",
+                "step3-title": "冰感按摩",
+                "step3-desc": "使用前冷冻15分钟，配合精华液按摩，促进吸收",
+                "step4-title": "清洁工具",
+                "step4-desc": "每次使用后清洗二合一滚轮及刮痧工具，保持洁净",
+                "story-title": "品牌故事",
+                "story-desc": "VANGINES - Care Simply, Love Gently",
+                "story-subtitle": "简单呵护，温柔关爱",
+                "story-p1": "VANGINES 诞生于对现代护肤需求的深刻理解。我们发现，在快节奏的生活中，人们渴望高效、简单且温和的护肤解决方案。因此，我们创造了这款集多功能于一身的护肤工具。",
+                "story-p2": "我们的使命是让专业级护肤变得简单易行。通过精心设计的黑头铲与冰感滚轮二合一工具，我们致力于为每位用户提供温和有效的护肤体验，无需复杂步骤，即可获得显著效果。",
+                "story-p3": "VANGINES 坚持使用高品质材料，包括食品级硅胶、不锈钢和锌合金，确保产品安全、耐用且有效。我们相信，护肤不仅是外在的护理，更是对自我的关爱与尊重。",
+                "footer-about": "VANGINES致力于提供高品质、多功能护肤工具，让您的日常护肤变得更简单、更有效。",
+                "footer-links": "快速链接",
+                
+                "copyright": "© 2023 VANGINES. 保留所有权利。"
+            },
+            en: {
+                "home": "Home",
+                "product": "Product",
+                "features": "Features",
+                "how-to-use": "How to Use",
+                "story": "Brand Story",
+                "hero-title1": "2-in-1 Roller & Blackhead Scraper<br>Your Professional Skincare Partner",
+                "hero-desc1": "VANGINES blackhead scraper and ice roller 2-in-1 design provides a professional-level experience for your daily skincare. Gentle cleansing, deep massage, revitalize skin.",
+                "hero-title2": "Ice Roller Massage<br>Soothe Skin, Revitalize",
+                "hero-desc2": "Use after freezing to soothe skin, reduce puffiness, shrink pores, and provide cooling refresh, use with serum to support absorption.",
+                "hero-title3": "Care Simply, Love Gently<br>Professional Skincare Made Simple",
+                "hero-desc3": "Our mission is to make professional-level skincare simple and easy. Through the carefully designed 2-in-1 tool, we provide a gentle and effective skincare experience.",
+                "shop-now": "Learn about the product",
+                "learn-more": "Learn More",
+                "brand-story": "Brand Story",
+                "product-title": "Product Showcase",
+                "product-desc": "Explore the multifunctional design of VANGINES blackhead scraper and ice roller to meet all your skincare needs",
+                "slide1-title": "Stylish Packaging Design",
+                "slide1-desc": "Purple packaging box, simple and fashionable, highlighting brand and product functions",
+                "slide2-title": "Multi-functional Facial Tool",
+                "slide2-desc": "All-in-one: blackhead removal, pore cleansing, ice roller massage, enhance absorption",
+                "slide3-title": "Ice Facial Roller",
+                "slide3-desc": "Freeze for 15 minutes before use, provides cooling refresh, use with serum to support absorption",
+                "slide4-title": "Easy Cleaning & Maintenance",
+                "slide4-desc": "Rinse the 2-in-1 face roller & scraper tool after each use to keep it clean",
+                "slide5-title": "Compact & Portable Design",
+                "slide5-desc": "34mm head diameter, 158mm total length, food-grade silicone material, easy to carry",
+                "features-title": "Core Features",
+                "features-desc": "Multiple skincare benefits of VANGINES blackhead scraper and ice roller to meet various skin needs",
+                "feature1-title": "Ice Roller Massage",
+                "feature1-desc": "Use after freezing to soothe skin, reduce puffiness, shrink pores, and provide cooling refresh",
+                "feature2-title": "Blackhead Removal Tool",
+                "feature2-desc": "Stainless steel blackhead scraper gently cleans pores, removes blackheads, whiteheads and oil buildup",
+                "feature3-title": "Enhance Serum Absorption",
+                "feature3-desc": "Use with serum, massage to promote absorption, allowing skincare ingredients to penetrate deeper",
+                "feature4-title": "Gentle & Non-irritating",
+                "feature4-desc": "Food-grade silicone material, safe and non-irritating, suitable for all skin types including sensitive skin",
+                "use-title": "How to Use",
+                "use-desc": "Four simple steps to achieve professional-level skincare results",
+                "step1-title": "Clean Your Face",
+                "step1-desc": "Use facial cleansing brush to remove impurities and prepare skin for care",
+                "step2-title": "Blackhead Removal",
+                "step2-desc": "Use blackhead remover spatula to gently glide and clear pores, lift away buildup",
+                "step3-title": "Ice Roller Massage",
+                "step3-desc": "Freeze for 15 minutes before use, massage with serum to boost absorption",
+                "step4-title": "Clean The Tool",
+                "step4-desc": "Rinse the 2-in-1 face roller & scraper tool after each use to keep it clean",
+                "story-title": "Brand Story",
+                "story-desc": "VANGINES - Care Simply, Love Gently",
+                "story-subtitle": "Care Simply, Love Gently",
+                "story-p1": "VANGINES was born from a deep understanding of modern skincare needs. We found that in a fast-paced life, people crave efficient, simple and gentle skincare solutions. Therefore, we created this multifunctional skincare tool.",
+                "story-p2": "Our mission is to make professional-level skincare simple and easy. Through the carefully designed 2-in-1 blackhead scraper and ice roller tool, we are committed to providing every user with a gentle and effective skincare experience, achieving remarkable results without complicated steps.",
+                "story-p3": "VANGINES insists on using high-quality materials, including food-grade silicone, stainless steel and zinc alloy, ensuring the product is safe, durable and effective. We believe that skincare is not only external care, but also self-care and respect.",
+                "footer-about": "VANGINES is committed to providing high-quality, multi-functional skincare tools to make your daily skincare simpler and more effective.",
+                "footer-links": "Quick Links",
+          
+                "copyright": "© 2023 VANGINES. All rights reserved."
+            }
+        };
+        
+        // 语言切换逻辑
+        langBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // 更新按钮状态
+                langBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // 获取选择的语言
+                const lang = btn.getAttribute('data-lang');
+                
+                // 更新所有可翻译元素的内容
+                elementsToTranslate.forEach(element => {
+                    const key = element.getAttribute('data-lang-key');
+                    if (translations[lang] && translations[lang][key]) {
+                        if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                            element.placeholder = translations[lang][key];
+                        } else {
+                            element.innerHTML = translations[lang][key];
+                        }
+                    }
+                });
+            });
+        });
+        
+        // 导航栏平滑滚动和激活状态
+        const navLinks = document.querySelectorAll('nav a');
+        const sections = document.querySelectorAll('section');
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav');
+        
+        // 导航链接点击事件
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // 移除所有激活状态
+                navLinks.forEach(l => l.classList.remove('active'));
+                
+                // 添加当前激活状态
+                this.classList.add('active');
+                
+                // 获取目标部分
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                // 平滑滚动到目标部分
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+                
+                // 移动端点击后关闭菜单
+                if (window.innerWidth <= 768) {
+                    nav.classList.remove('active');
+                }
+            });
+        });
+        
+        // 移动端菜单切换
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+        
+        // 滚动时更新导航激活状态
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // 页面加载时默认激活首页
+        window.addEventListener('load', () => {
+            navLinks[0].classList.add('active');
+        });
+    </script>
+</body>
+</html>
